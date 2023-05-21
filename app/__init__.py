@@ -1,12 +1,12 @@
 import json
 from app.component import Component
 
-def convert_to_dict(json_value):
-    return json.loads(json_value)
-
 def myparse_json(json_value):
-    dict = convert_to_dict(json_value)
-    return map_values(dict)
+
+    value_dict = json_value
+    if (json_value and (type(json_value) == str)):       
+        value_dict = json.loads(json_value)
+    return map_values(value_dict)
     
 
 def map_values(dict, components = None):
